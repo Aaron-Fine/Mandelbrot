@@ -8,7 +8,7 @@
 #include <string>
 #include <fstream>
 
-std::string getStringInput(std::string prompt);
+std::string getStringInput( std::string& prompt );
 
 bool split(const std::string& s, char delimiter, std::string elements[], int expectedNumberOfElements);
 int convertStringToInt(const std::string& s, bool* valid = nullptr);

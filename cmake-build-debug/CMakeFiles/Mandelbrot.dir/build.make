@@ -81,28 +81,28 @@ CMakeFiles/Mandelbrot.dir/main.cpp.o.provides: CMakeFiles/Mandelbrot.dir/main.cp
 CMakeFiles/Mandelbrot.dir/main.cpp.o.provides.build: CMakeFiles/Mandelbrot.dir/main.cpp.o
 
 
-CMakeFiles/Mandelbrot.dir/config.cpp.o: CMakeFiles/Mandelbrot.dir/flags.make
-CMakeFiles/Mandelbrot.dir/config.cpp.o: ../config.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Mandelbrot.dir/config.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Mandelbrot.dir/config.cpp.o -c /cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/config.cpp
+CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o: CMakeFiles/Mandelbrot.dir/flags.make
+CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o: ../MandelConfig.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o -c /cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/MandelConfig.cpp
 
-CMakeFiles/Mandelbrot.dir/config.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Mandelbrot.dir/config.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/config.cpp > CMakeFiles/Mandelbrot.dir/config.cpp.i
+CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/MandelConfig.cpp > CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.i
 
-CMakeFiles/Mandelbrot.dir/config.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Mandelbrot.dir/config.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/config.cpp -o CMakeFiles/Mandelbrot.dir/config.cpp.s
+CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/MandelConfig.cpp -o CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.s
 
-CMakeFiles/Mandelbrot.dir/config.cpp.o.requires:
+CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o.requires:
 
-.PHONY : CMakeFiles/Mandelbrot.dir/config.cpp.o.requires
+.PHONY : CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o.requires
 
-CMakeFiles/Mandelbrot.dir/config.cpp.o.provides: CMakeFiles/Mandelbrot.dir/config.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/config.cpp.o.provides.build
-.PHONY : CMakeFiles/Mandelbrot.dir/config.cpp.o.provides
+CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o.provides: CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o.provides.build
+.PHONY : CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o.provides
 
-CMakeFiles/Mandelbrot.dir/config.cpp.o.provides.build: CMakeFiles/Mandelbrot.dir/config.cpp.o
+CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o.provides.build: CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o
 
 
 CMakeFiles/Mandelbrot.dir/Utils.cpp.o: CMakeFiles/Mandelbrot.dir/flags.make
@@ -156,7 +156,7 @@ CMakeFiles/Mandelbrot.dir/Mandelbrot.cpp.o.provides.build: CMakeFiles/Mandelbrot
 # Object files for target Mandelbrot
 Mandelbrot_OBJECTS = \
 "CMakeFiles/Mandelbrot.dir/main.cpp.o" \
-"CMakeFiles/Mandelbrot.dir/config.cpp.o" \
+"CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o" \
 "CMakeFiles/Mandelbrot.dir/Utils.cpp.o" \
 "CMakeFiles/Mandelbrot.dir/Mandelbrot.cpp.o"
 
@@ -164,7 +164,7 @@ Mandelbrot_OBJECTS = \
 Mandelbrot_EXTERNAL_OBJECTS =
 
 Mandelbrot.exe: CMakeFiles/Mandelbrot.dir/main.cpp.o
-Mandelbrot.exe: CMakeFiles/Mandelbrot.dir/config.cpp.o
+Mandelbrot.exe: CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o
 Mandelbrot.exe: CMakeFiles/Mandelbrot.dir/Utils.cpp.o
 Mandelbrot.exe: CMakeFiles/Mandelbrot.dir/Mandelbrot.cpp.o
 Mandelbrot.exe: CMakeFiles/Mandelbrot.dir/build.make
@@ -178,7 +178,7 @@ CMakeFiles/Mandelbrot.dir/build: Mandelbrot.exe
 .PHONY : CMakeFiles/Mandelbrot.dir/build
 
 CMakeFiles/Mandelbrot.dir/requires: CMakeFiles/Mandelbrot.dir/main.cpp.o.requires
-CMakeFiles/Mandelbrot.dir/requires: CMakeFiles/Mandelbrot.dir/config.cpp.o.requires
+CMakeFiles/Mandelbrot.dir/requires: CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o.requires
 CMakeFiles/Mandelbrot.dir/requires: CMakeFiles/Mandelbrot.dir/Utils.cpp.o.requires
 CMakeFiles/Mandelbrot.dir/requires: CMakeFiles/Mandelbrot.dir/Mandelbrot.cpp.o.requires
 

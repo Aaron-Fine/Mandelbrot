@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/MandelConfig.cpp" "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/cmake-build-debug/CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o"
   "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/Mandelbrot.cpp" "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/cmake-build-debug/CMakeFiles/Mandelbrot.dir/Mandelbrot.cpp.o"
   "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/Utils.cpp" "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/cmake-build-debug/CMakeFiles/Mandelbrot.dir/Utils.cpp.o"
-  "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/config.cpp" "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/cmake-build-debug/CMakeFiles/Mandelbrot.dir/config.cpp.o"
   "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/main.cpp" "/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/cmake-build-debug/CMakeFiles/Mandelbrot.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

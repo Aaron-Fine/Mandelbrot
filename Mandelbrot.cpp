@@ -4,34 +4,21 @@
 
 #include "Mandelbrot.h"
 
-#include <utility>
-
-Mandelbrot::Mandelbrot( Configuration configuration ) :
-        config( std::move( configuration ))
+Mandelbrot::Mandelbrot( const MandelConfig& initConfig) :
+        config( initConfig )
 {
-    height = unsigned( config.getParamAsInt( "height" ));
-    width = unsigned( config.getParamAsInt( "width" ));
-    xMin = config.getParamAsDouble("x Complex Min");
-    xMax = config.getParamAsDouble("x Complex Max");
-    yMin = config.getParamAsDouble("y Complex Min");
-    yMax = config.getParamAsDouble("y Complex Max");
-    maxIterations = unsigned(config.getParamAsInt("iterations"));
+    iterMap = new unsigned int* [config.getHeight()];
 
-    pixelWidth = (xMax - xMin) / width;
-    pixelHeight = (yMax - yMin) / height;
-
-    iterMap = new unsigned int* [height];
-
-    for ( unsigned int i = 0; i < height; ++i )
+    for ( unsigned int i = 0; i < config.getHeight(); ++i )
     {
-        iterMap[ i ] = new unsigned int[width];
+        iterMap[ i ] = new unsigned int[config.getWidth()];
     }
 }
 
 Mandelbrot::~Mandelbrot()
 {
 
-    for ( unsigned int i = 0; i < height; ++i )
+    for ( unsigned int i = 0; i < config.getHeight(); ++i )
     {
         if ( iterMap[ i ] != nullptr )
         {
@@ -48,17 +35,18 @@ void Mandelbrot::generate()
 
 }
 
-void Mandelbrot::saveTo( std::string outputFile )
+void Mandelbrot::saveTo( const std::string& outputFile )
 {
 
 }
 
-unsigned int Mandelbrot::inSet( double x0, double y0 )
+unsigned int Mandelbrot::inMandelbrotSet( double x0, double y0 )
 {
     return 0;
 }
 
 std::tuple< unsigned int, unsigned int, unsigned int > Mandelbrot::determineColor( unsigned int iteration )
 {
-    return {0, 0, 0};
+    std::tuple< unsigned int, unsigned int, unsigned int > result (0, 0, 0);
+    return result;
 }

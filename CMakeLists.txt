@@ -5,9 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
         main.cpp
-#        Configuration.h Configuration.cpp
-#        AVLTree.h Dictionary.h KeyValue.h
-        config.h config.cpp
+        MandelConfig.h MandelConfig.cpp
         Utils.h Utils.cpp
         Mandelbrot.cpp Mandelbrot.h)
 add_executable(Mandelbrot ${SOURCE_FILES})

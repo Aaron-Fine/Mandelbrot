@@ -5,22 +5,17 @@
 #ifndef MANDELBROT_MANDELBROT_H
 #define MANDELBROT_MANDELBROT_H
 
-#include "Configuration.h"
+#include "MandelConfig.h"
+#include <tuple>
 
 class Mandelbrot
 {
 private:
-    Configuration config;
+    MandelConfig config;
     unsigned int** iterMap;
-    unsigned int height;
-    unsigned int width;
-    double pixelWidth;
-    double pixelHeight;
-    double xMin, xMax, yMin, yMax;
-    unsigned int maxIterations;
 
 public:
-    explicit Mandelbrot( Configuration configuration );
+    explicit Mandelbrot( const MandelConfig& initConfig );
 
     ~Mandelbrot();
 
@@ -28,13 +23,13 @@ public:
 
     void save()
     {
-        saveTo( config.getParamAsString( "filename" ));
+        saveTo(config.getFileName());
     }
 
-    void saveTo( std::string outputFile );
+    void saveTo( const std::string& outputFile );
 
 private:
-    unsigned int inSet(double x0, double y0);
+    unsigned int inMandelbrotSet( double x0, double y0 );
 
     std::tuple<unsigned int, unsigned int, unsigned int> determineColor(unsigned int iteration);
 };

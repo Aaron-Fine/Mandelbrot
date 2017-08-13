@@ -12,7 +12,7 @@
 #include <limits>
 #include "Utils.h"
 
-std::string getStringInput(std::string prompt)
+std::string getStringInput( std::string& prompt )
 {
     std::string userInput;
 

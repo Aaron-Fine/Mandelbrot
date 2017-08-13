@@ -123,6 +123,33 @@ Mandelbrot/fast:
 	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/build
 .PHONY : Mandelbrot/fast
 
+MandelConfig.o: MandelConfig.cpp.o
+
+.PHONY : MandelConfig.o
+
+# target to build an object file
+MandelConfig.cpp.o:
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.o
+.PHONY : MandelConfig.cpp.o
+
+MandelConfig.i: MandelConfig.cpp.i
+
+.PHONY : MandelConfig.i
+
+# target to preprocess a source file
+MandelConfig.cpp.i:
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.i
+.PHONY : MandelConfig.cpp.i
+
+MandelConfig.s: MandelConfig.cpp.s
+
+.PHONY : MandelConfig.s
+
+# target to generate assembly for a file
+MandelConfig.cpp.s:
+	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/MandelConfig.cpp.s
+.PHONY : MandelConfig.cpp.s
+
 Mandelbrot.o: Mandelbrot.cpp.o
 
 .PHONY : Mandelbrot.o
@@ -177,33 +204,6 @@ Utils.cpp.s:
 	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/Utils.cpp.s
 .PHONY : Utils.cpp.s
 
-config.o: config.cpp.o
-
-.PHONY : config.o
-
-# target to build an object file
-config.cpp.o:
-	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/config.cpp.o
-.PHONY : config.cpp.o
-
-config.i: config.cpp.i
-
-.PHONY : config.i
-
-# target to preprocess a source file
-config.cpp.i:
-	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/config.cpp.i
-.PHONY : config.cpp.i
-
-config.s: config.cpp.s
-
-.PHONY : config.s
-
-# target to generate assembly for a file
-config.cpp.s:
-	$(MAKE) -f CMakeFiles/Mandelbrot.dir/build.make CMakeFiles/Mandelbrot.dir/config.cpp.s
-.PHONY : config.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -240,15 +240,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Mandelbrot"
+	@echo "... MandelConfig.o"
+	@echo "... MandelConfig.i"
+	@echo "... MandelConfig.s"
 	@echo "... Mandelbrot.o"
 	@echo "... Mandelbrot.i"
 	@echo "... Mandelbrot.s"
 	@echo "... Utils.o"
 	@echo "... Utils.i"
 	@echo "... Utils.s"
-	@echo "... config.o"
-	@echo "... config.i"
-	@echo "... config.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -7,7 +7,7 @@
 
 #include <string>
 
-class config
+class MandelConfig
 {
 private:
     int width;
@@ -18,51 +18,48 @@ private:
     double yComplexMax;
     int maxIterations;
     std::string fileName;
+
 public:
     int getWidth() const;
 
-    void setWidth( int width );
-
     int getHeight() const;
-
-    void setHeight( int height );
 
     double getXComplexMin() const;
 
-    void setXComplexMin( double xComplexMin );
-
     double getXComplexMax() const;
-
-    void setXComplexMax( double xComplexMax );
 
     double getYComplexMin() const;
 
-    void setYComplexMin( double yComplexMin );
-
     double getYComplexMax() const;
-
-    void setYComplexMax( double yComplexMax );
 
     int getMaxIterations() const;
 
-    void setMaxIterations( int maxIterations );
-
     const std::string& getFileName() const;
 
-    void setFileName( const std::string& fileName );
+    double getPixelWidth()
+    {
+        return ( xComplexMax - xComplexMin ) / width;
+    }
 
-    config();
+    double getPixelHeight()
+    {
+        return ( yComplexMax - yComplexMin ) / height;
+    }
 
-    explicit config( std::string& filename );
+    MandelConfig();
 
-    config( int width, int height,
-            double xmin, double xmax,
-            double ymin, double ymax,
-            int iterations, std::string& filename );
+    explicit MandelConfig( std::string& filename );
+
+    MandelConfig( int width, int height,
+                  double xmin, double xmax,
+                  double ymin, double ymax,
+                  int iterations, std::string& filename );
 
 private:
 
     void readConfigFile( std::string& inputFileName );
+
+    void validate();
 };
 
 
