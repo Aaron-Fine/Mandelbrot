@@ -7,13 +7,13 @@
 #include <fstream>
 #include <iostream>
 
-int MandelConfig::getWidth() const
+unsigned int MandelConfig::getWidth() const
 {
     return width;
 }
 
 
-int MandelConfig::getHeight() const
+unsigned int MandelConfig::getHeight() const
 {
     return height;
 }
@@ -43,7 +43,7 @@ double MandelConfig::getYComplexMax() const
 }
 
 
-int MandelConfig::getMaxIterations() const
+unsigned int MandelConfig::getMaxIterations() const
 {
     return maxIterations;
 }

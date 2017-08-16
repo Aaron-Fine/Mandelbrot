@@ -10,9 +10,10 @@
 
 class Mandelbrot
 {
-private:
+protected:
     MandelConfig config;
     unsigned int** iterMap;
+    unsigned int maxColorValue = 255;
 
 public:
     explicit Mandelbrot( const MandelConfig& initConfig );
@@ -29,9 +30,9 @@ public:
     void saveTo( const std::string& outputFile );
 
 private:
-    unsigned int inMandelbrotSet( double x0, double y0 );
+    unsigned int getEscapeCount( double x0, double y0 );
 
-    std::tuple<unsigned int, unsigned int, unsigned int> determineColor(unsigned int iteration);
+    virtual std::tuple<unsigned int, unsigned int, unsigned int> determineColor(unsigned int iteration);
 };
 
 

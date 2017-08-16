@@ -48,7 +48,7 @@ int convertStringToInt(const std::string& s, bool* valid)
         *valid = false;
 
     std::size_t numberOfConvertedCharacters = 0;
-    if (s != "")
+    if (!s.empty())
     {
         try
         {
@@ -75,7 +75,7 @@ unsigned int convertStringToUnsignedInt(const std::string& s, bool* valid)
         *valid = false;
 
     std::size_t numberOfConvertedCharacters = 0;
-    if (s != "")
+    if (!s.empty())
     {
         try
         {
@@ -109,7 +109,7 @@ std::size_t convertStringToSizeT(const std::string& s, bool* valid)
         *valid = false;
 
     std::size_t numberOfConvertedCharacters = 0;
-    if (s != "")
+    if (!s.empty())
     {
         try
         {
@@ -145,7 +145,7 @@ double convertStringToDouble(const std::string& s, bool* valid)
         *valid = false;
 
     std::size_t numberOfConvertedCharacters = 0;
-    if (s != "")
+    if (!s.empty())
     {
         try
         {

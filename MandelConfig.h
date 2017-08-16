@@ -10,19 +10,19 @@
 class MandelConfig
 {
 private:
-    int width;
-    int height;
+    unsigned int width;
+    unsigned int height;
     double xComplexMin;
     double xComplexMax;
     double yComplexMin;
     double yComplexMax;
-    int maxIterations;
+    unsigned int maxIterations;
     std::string fileName;
 
 public:
-    int getWidth() const;
+    unsigned int getWidth() const;
 
-    int getHeight() const;
+    unsigned int getHeight() const;
 
     double getXComplexMin() const;
 
@@ -32,7 +32,7 @@ public:
 
     double getYComplexMax() const;
 
-    int getMaxIterations() const;
+    unsigned int getMaxIterations() const;
 
     const std::string& getFileName() const;
 
