@@ -35,8 +35,8 @@ Mandelbrot::~Mandelbrot()
 
 void Mandelbrot::generate()
 {
-    double x0 = 0.0;
-    double y0 = 0.0;
+    double x0;
+    double y0;
 
     for ( unsigned int row = 0; row < config.getHeight(); ++row )
     {
@@ -84,12 +84,11 @@ unsigned int Mandelbrot::getEscapeCount( double x0, double y0 )
 {
     double x = 0.0;
     double y = 0.0;
-    double temp = 0.0;
     unsigned int iteration = 0;
 
     while ( x * x + y * y < 4 && iteration < config.getMaxIterations())
     {
-        temp = x * x - y * y + x0;
+        double temp = x * x - y * y + x0;
         y = 2 * x * y + y0;
         x = temp;
         ++iteration;

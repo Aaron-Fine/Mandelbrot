@@ -9,7 +9,7 @@
 #include <sstream>
 #include <fstream>
 #include <cmath>
-#include <limits>
+
 #include "Utils.h"
 
 std::string getStringInput( std::string& prompt )
@@ -18,7 +18,7 @@ std::string getStringInput( std::string& prompt )
 
     std::cout << std::endl;
     std::cout << prompt << std::endl;
-    std::getline(std::cin, userInput);
+    std::getline( std::cin, userInput );
 
     return userInput;
 }
@@ -27,39 +27,39 @@ std::string getStringInput( std::string& prompt )
 // to see if the expected number of pieces were found in the string
 //
 // Return a true if the string was split into the expected number of pieces, otherwise a it return a false.
-bool split(const std::string& s, char delimiter, std::string pieces[], int expectedNumberOfPieces)
+bool split( const std::string& s, char delimiter, std::string pieces[], int expectedNumberOfPieces )
 {
     std::stringstream ss;
-    ss.str(s);
+    ss.str( s );
     std::string item;
 
     int i = 0;
-    while (std::getline(ss, item, delimiter) && i < expectedNumberOfPieces)
+    while ( std::getline( ss, item, delimiter ) && i < expectedNumberOfPieces )
     {
-        pieces[i++] = trim(item);
+        pieces[ i++ ] = trim( item );
     }
-    return (i == expectedNumberOfPieces);
+    return ( i == expectedNumberOfPieces );
 }
 
-int convertStringToInt(const std::string& s, bool* valid)
+int convertStringToInt( const std::string& s, bool* valid )
 {
     int result = 0;
-    if (valid != nullptr)
+    if ( valid != nullptr )
         *valid = false;
 
     std::size_t numberOfConvertedCharacters = 0;
-    if (!s.empty())
+    if ( !s.empty())
     {
         try
         {
-            std::string trimmedString = trim(s);
-            result = std::stoi(trimmedString, &numberOfConvertedCharacters);
-            if (valid != nullptr && numberOfConvertedCharacters == trimmedString.length())
+            std::string trimmedString = trim( s );
+            result = std::stoi( trimmedString, &numberOfConvertedCharacters );
+            if ( valid != nullptr && numberOfConvertedCharacters == trimmedString.length())
                 *valid = true;
-            else if (numberOfConvertedCharacters != trimmedString.length())
+            else if ( numberOfConvertedCharacters != trimmedString.length())
                 result = 0;
         }
-        catch (std::exception)
+        catch ( std::exception )
         {
             // do nothing, let the result remain 0 and the valid flag false
         }
@@ -68,32 +68,32 @@ int convertStringToInt(const std::string& s, bool* valid)
     return result;
 }
 
-unsigned int convertStringToUnsignedInt(const std::string& s, bool* valid)
+unsigned int convertStringToUnsignedInt( const std::string& s, bool* valid )
 {
     unsigned int result = 0;
-    if (valid != nullptr)
+    if ( valid != nullptr )
         *valid = false;
 
     std::size_t numberOfConvertedCharacters = 0;
-    if (!s.empty())
+    if ( !s.empty())
     {
         try
         {
-            std::string trimmedString = trim(s);
-            if (trimmedString.substr(0, 1) != "-")
+            std::string trimmedString = trim( s );
+            if ( trimmedString.substr( 0, 1 ) != "-" )
             {
-                unsigned long tmp = std::stoul(trimmedString, &numberOfConvertedCharacters);
-                if (tmp <= UINT32_MAX)
+                unsigned long tmp = std::stoul( trimmedString, &numberOfConvertedCharacters );
+                if ( tmp <= UINT32_MAX)
                 {
-                    result = (unsigned int) tmp;
-                    if (valid != nullptr && numberOfConvertedCharacters == trimmedString.length())
+                    result = ( unsigned int ) tmp;
+                    if ( valid != nullptr && numberOfConvertedCharacters == trimmedString.length())
                         *valid = true;
-                    else if (numberOfConvertedCharacters != trimmedString.length())
+                    else if ( numberOfConvertedCharacters != trimmedString.length())
                         result = 0;
                 }
             }
         }
-        catch (std::exception)
+        catch ( std::exception )
         {
             // do nothing, let the result remain 0 and the valid flag false
         }
@@ -102,29 +102,29 @@ unsigned int convertStringToUnsignedInt(const std::string& s, bool* valid)
     return result;
 }
 
-std::size_t convertStringToSizeT(const std::string& s, bool* valid)
+std::size_t convertStringToSizeT( const std::string& s, bool* valid )
 {
     std::size_t result = 0;
-    if (valid != nullptr)
+    if ( valid != nullptr )
         *valid = false;
 
     std::size_t numberOfConvertedCharacters = 0;
-    if (!s.empty())
+    if ( !s.empty())
     {
         try
         {
-            std::string trimmedString = trim(s);
-            if (trimmedString.substr(0, 1) != "-")
+            std::string trimmedString = trim( s );
+            if ( trimmedString.substr( 0, 1 ) != "-" )
             {
-                result = std::stoul(trimmedString, &numberOfConvertedCharacters);
+                result = std::stoul( trimmedString, &numberOfConvertedCharacters );
 
-                if (valid != nullptr && numberOfConvertedCharacters == trimmedString.length())
+                if ( valid != nullptr && numberOfConvertedCharacters == trimmedString.length())
                     *valid = true;
-                else if (numberOfConvertedCharacters != trimmedString.length())
+                else if ( numberOfConvertedCharacters != trimmedString.length())
                     result = 0;
             }
         }
-        catch (std::exception)
+        catch ( std::exception )
         {
             // do nothing, let the result remain 0 and the valid flag false
         }
@@ -138,25 +138,25 @@ std::size_t convertStringToSizeT(const std::string& s, bool* valid)
 // Return the double value represented (0 if the string is not value) and set a valid flag, if provided, if the string
 // represented an acceptable double.  The valid flag is a point to a bool.  If the pointer is null, then the function
 // will still try to convert the string, but it will not try to set the valid flag.
-double convertStringToDouble(const std::string& s, bool* valid)
+double convertStringToDouble( const std::string& s, bool* valid )
 {
     double result = 0;
-    if (valid != nullptr)
+    if ( valid != nullptr )
         *valid = false;
 
     std::size_t numberOfConvertedCharacters = 0;
-    if (!s.empty())
+    if ( !s.empty())
     {
         try
         {
-            std::string trimmedString = trim(s);
-            result = std::stod(trimmedString, &numberOfConvertedCharacters);
-            if (valid != nullptr && numberOfConvertedCharacters == trimmedString.length())
+            std::string trimmedString = trim( s );
+            result = std::stod( trimmedString, &numberOfConvertedCharacters );
+            if ( valid != nullptr && numberOfConvertedCharacters == trimmedString.length())
                 *valid = true;
-            else if (numberOfConvertedCharacters != trimmedString.length())
+            else if ( numberOfConvertedCharacters != trimmedString.length())
                 result = 0;
         }
-        catch (std::exception)
+        catch ( std::exception )
         {
             // do nothing, let the result remain 0 and the valid flag false
         }
@@ -169,27 +169,27 @@ double convertStringToDouble(const std::string& s, bool* valid)
 //      http://stackoverflow.com/questions/25829143/c-trim-whitespace-from-a-string
 
 // Removes leading whitespace, include space, tabs, newlines, and returns
-std::string leftTrim(const std::string& inputStr)
+std::string leftTrim( const std::string& inputStr )
 {
     std::string str = inputStr;
-    auto it2 = std::find_if(str.begin(), str.end(), IsNotWhiteSpace);
-    str.erase(str.begin(), it2);
+    auto it2 = std::find_if( str.begin(), str.end(), IsNotWhiteSpace );
+    str.erase( str.begin(), it2 );
     return str;
 }
 
 // Removes trailing whitespace, include space, tabs, newlines, and returns
-std::string rightTrim(const std::string& inputStr)
+std::string rightTrim( const std::string& inputStr )
 {
     std::string str = inputStr;
-    auto it1 = std::find_if(str.rbegin(), str.rend(), IsNotWhiteSpace);
-    str.erase(it1.base(), str.end());
+    auto it1 = std::find_if( str.rbegin(), str.rend(), IsNotWhiteSpace );
+    str.erase( it1.base(), str.end());
     return str;
 }
 
 // Removes leading and trailing whitespace, include space, tabs, newlines, and returns
-std::string trim(const std::string& str)
+std::string trim( const std::string& str )
 {
-    return leftTrim(rightTrim(str));
+    return leftTrim( rightTrim( str ));
 }
 
 // Function to check if a character is a not a whitespace character, namely
@@ -199,7 +199,7 @@ std::string trim(const std::string& str)
 //      carriage return (0x0d, '\r')
 //      horizontal tab (0x09, '\t')
 //       vertical tab (0x0b, '\v')
-bool IsNotWhiteSpace(char ch)
+bool IsNotWhiteSpace( char ch )
 {
-    return !std::isspace<char>(ch, std::locale::classic());
+    return !std::isspace< char >( ch, std::locale::classic());
 }

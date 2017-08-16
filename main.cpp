@@ -35,8 +35,8 @@ int main( int numArgs, char* args[] )
         }
         case 2:
         {
-            std::string red1, green1 , blue1;
-            std::string red2 , green2 , blue2;
+            std::string red1, green1, blue1;
+            std::string red2, green2, blue2;
 
             std::cout << "Please enter RGB triplets between 0 and 255\nFirst Color: ";
             std::cin >> red1 >> green1 >> blue1;
@@ -51,12 +51,14 @@ int main( int numArgs, char* args[] )
                                              convertStringToInt( blue2 ));
             break;
         }
+        // TODO: Add coloring scheme from https://solarianprogrammer.com/2013/02/28/mandelbrot-set-cpp-11/
         default:
         {
             mandelbrot = new Mandelbrot( *config );
         }
     }
 
+    // TODO: Add timing code for generation and saving
 
     mandelbrot->generate();
     mandelbrot->save();

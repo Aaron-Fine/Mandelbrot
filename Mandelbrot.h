@@ -24,15 +24,17 @@ public:
 
     void save()
     {
-        saveTo(config.getFileName());
+        saveTo( config.getFileName());
     }
 
     void saveTo( const std::string& outputFile );
 
 private:
+    // TODO: Try looking into better escape count techniques from http://linas.org/art-gallery/escape/escape.html
+    // TODO: See if adding in a dictionary of previous positions to detect loops makes it faster see https://en.wikipedia.org/wiki/Mandelbrot_set#Periodicity_checking
     unsigned int getEscapeCount( double x0, double y0 );
 
-    virtual std::tuple<unsigned int, unsigned int, unsigned int> determineColor(unsigned int iteration);
+    virtual std::tuple< unsigned int, unsigned int, unsigned int > determineColor( unsigned int iteration );
 };
 
 

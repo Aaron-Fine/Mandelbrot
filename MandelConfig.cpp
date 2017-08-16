@@ -75,10 +75,10 @@ MandelConfig::MandelConfig( std::string& filename ) :
     validate();
 }
 
-MandelConfig::MandelConfig( int width, int height,
+MandelConfig::MandelConfig( unsigned int width, unsigned int height,
                             double xmin, double xmax,
                             double ymin, double ymax,
-                            int iterations,
+                            unsigned int iterations,
                             std::string& filename ) :
         width( width ), height( height ),
         xComplexMin( xmin ), xComplexMax( xmax ),

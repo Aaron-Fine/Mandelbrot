@@ -50,10 +50,10 @@ public:
 
     explicit MandelConfig( std::string& filename );
 
-    MandelConfig( int width, int height,
+    MandelConfig( unsigned int width, unsigned int height,
                   double xmin, double xmax,
                   double ymin, double ymax,
-                  int iterations, std::string& filename );
+                  unsigned int iterations, std::string& filename );
 
 private:
 

@@ -9,9 +9,9 @@
 
 struct Color
 {
-    int red;
-    int green;
-    int blue;
+    int red = 0;
+    int green = 0;
+    int blue = 0;
 };
 
 class LinearColoring : public Mandelbrot
@@ -43,13 +43,13 @@ public:
 
     std::tuple< unsigned int, unsigned int, unsigned int > determineColor( unsigned int iteration ) override
     {
-        double redDelta = ( static_cast<double>( colorTwo.red - colorOne.red ) * iteration ) /
+        double redDelta = (( colorTwo.red - colorOne.red ) * iteration ) /
                           static_cast<double>(config.getMaxIterations());
 
-        double greenDelta = ( static_cast<double>( colorTwo.green - colorOne.green ) * iteration ) /
+        double greenDelta = (( colorTwo.green - colorOne.green ) * iteration ) /
                             static_cast<double>(config.getMaxIterations());
 
-        double blueDelta = ( static_cast<double>( colorTwo.blue - colorOne.blue ) * iteration ) /
+        double blueDelta = (( colorTwo.blue - colorOne.blue ) * iteration ) /
                            static_cast<double>(config.getMaxIterations());
 
 
