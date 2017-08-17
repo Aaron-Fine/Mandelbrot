@@ -117,3 +117,28 @@ void Mandelbrot::outputIterations( const std::string& outputFile )
         fout << "\n";
     }
 }
+
+void Mandelbrot::iterationHistogram(const std::string &outputFile) {
+    std::ofstream fout( outputFile );
+
+    std::string out;
+    int histogram[config.getMaxIterations()]{0};
+
+
+    for ( unsigned int row = 0; row < config.getHeight(); ++row )
+    {
+        for ( unsigned int col = 0; col < config.getWidth(); ++col )
+        {
+            histogram[iterMap[row][col]]++;
+        }
+    }
+
+    for (int i = 0; i < config.getMaxIterations(); ++i) {
+        out += std::to_string(i);
+        out += ", ";
+        out += std::to_string(histogram[i]);
+        out += "\n";
+    }
+
+    fout << out;
+}
