@@ -11,6 +11,7 @@ CMakeFiles/Mandelbrot.dir/Mandelbrot.cpp.o: ../Mandelbrot.h
 CMakeFiles/Mandelbrot.dir/Utils.cpp.o: ../Utils.cpp
 CMakeFiles/Mandelbrot.dir/Utils.cpp.o: ../Utils.h
 
+CMakeFiles/Mandelbrot.dir/main.cpp.o: ../BernsteinContinuous.h
 CMakeFiles/Mandelbrot.dir/main.cpp.o: ../LinearColoring.h
 CMakeFiles/Mandelbrot.dir/main.cpp.o: ../MandelConfig.h
 CMakeFiles/Mandelbrot.dir/main.cpp.o: ../Mandelbrot.h
