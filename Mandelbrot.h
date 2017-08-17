@@ -30,6 +30,8 @@ public:
     void saveTo( const std::string& outputFile );
 
     void outputIterations( const std::string& outputFile );
+    
+    void iterationHistogram(const std::string& outputFile );
 
 private:
     // TODO: Try looking into better escape count techniques from http://linas.org/art-gallery/escape/escape.html
