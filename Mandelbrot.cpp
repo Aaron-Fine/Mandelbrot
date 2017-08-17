@@ -99,6 +99,21 @@ unsigned int Mandelbrot::getEscapeCount( double x0, double y0 )
 
 std::tuple< unsigned int, unsigned int, unsigned int > Mandelbrot::determineColor( unsigned int iteration )
 {
-    std::tuple< unsigned int, unsigned int, unsigned int > result( 0, 0, 0 );
-    return result;
+    return std::make_tuple( iteration % maxColorValue,
+                            iteration % maxColorValue,
+                            iteration % maxColorValue );
+}
+
+void Mandelbrot::outputIterations( const std::string& outputFile )
+{
+    std::ofstream fout( outputFile );
+
+    for ( unsigned int row = 0; row < config.getHeight(); ++row )
+    {
+        for ( unsigned int col = 0; col < config.getWidth(); ++col )
+        {
+            fout << std::setw( 5 ) << iterMap[ row ][ col ] << ", ";
+        }
+        fout << "\n";
+    }
 }

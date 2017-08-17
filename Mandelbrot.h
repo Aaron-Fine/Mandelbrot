@@ -29,6 +29,8 @@ public:
 
     void saveTo( const std::string& outputFile );
 
+    void outputIterations( const std::string& outputFile );
+
 private:
     // TODO: Try looking into better escape count techniques from http://linas.org/art-gallery/escape/escape.html
     // TODO: See if adding in a dictionary of previous positions to detect loops makes it faster see https://en.wikipedia.org/wiki/Mandelbrot_set#Periodicity_checking

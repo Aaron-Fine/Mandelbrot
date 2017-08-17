@@ -4,6 +4,7 @@
 #include "Utils.h"
 #include "Mandelbrot.h"
 #include "LinearColoring.h"
+#include "BernsteinContinuous.h"
 
 int main( int numArgs, char* args[] )
 {
@@ -21,8 +22,10 @@ int main( int numArgs, char* args[] )
     }
 
     std::cout << "Choose coloring scheme by entering integer associated with desired option:\n";
+    std::cout << "0) Default\n";
     std::cout << "1) Linear (default coloring)\n";
     std::cout << "2) Linear (custom coloring)\n";
+    std::cout << "3) Bernstein Continuous (default coloring)\n";
     std::string choice;
     std::cin >> choice;
 
@@ -51,7 +54,11 @@ int main( int numArgs, char* args[] )
                                              convertStringToInt( blue2 ));
             break;
         }
-        // TODO: Add coloring scheme from https://solarianprogrammer.com/2013/02/28/mandelbrot-set-cpp-11/
+        case 3:
+        {
+            mandelbrot = new BernsteinContinuous( *config );
+            break;
+        }
         default:
         {
             mandelbrot = new Mandelbrot( *config );
@@ -62,6 +69,8 @@ int main( int numArgs, char* args[] )
 
     mandelbrot->generate();
     mandelbrot->save();
+
+//    mandelbrot->outputIterations("debug.csv");
 
     std::cout << "Generated Mandelbrot!\nFile saved to " << config->getFileName() << std::endl;
     return 0;

@@ -41,15 +41,16 @@ public:
         colorTwo.blue = secondBlue;
     }
 
+private:
     std::tuple< unsigned int, unsigned int, unsigned int > determineColor( unsigned int iteration ) override
     {
-        double redDelta = (( colorTwo.red - colorOne.red ) * iteration ) /
+        double redDelta = (static_cast<double>( colorTwo.red - colorOne.red ) * iteration ) /
                           static_cast<double>(config.getMaxIterations());
 
-        double greenDelta = (( colorTwo.green - colorOne.green ) * iteration ) /
+        double greenDelta = (static_cast<double>( colorTwo.green - colorOne.green ) * iteration ) /
                             static_cast<double>(config.getMaxIterations());
 
-        double blueDelta = (( colorTwo.blue - colorOne.blue ) * iteration ) /
+        double blueDelta = (static_cast<double>( colorTwo.blue - colorOne.blue ) * iteration ) /
                            static_cast<double>(config.getMaxIterations());
 
 

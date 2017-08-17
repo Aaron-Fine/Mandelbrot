@@ -7,5 +7,5 @@ set(SOURCE_FILES
         main.cpp
         MandelConfig.h MandelConfig.cpp
         Utils.h Utils.cpp
-        Mandelbrot.cpp Mandelbrot.h LinearColoring.h)
+        Mandelbrot.cpp Mandelbrot.h LinearColoring.h BernsteinContinuous.h)
 add_executable(Mandelbrot ${SOURCE_FILES})
