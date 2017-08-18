@@ -6,6 +6,8 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
+#include <iostream>
+#include <chrono>
 
 Mandelbrot::Mandelbrot( const MandelConfig& initConfig ) :
         config( initConfig )
@@ -35,6 +37,7 @@ Mandelbrot::~Mandelbrot()
 
 void Mandelbrot::generate()
 {
+    auto beforeGenerate = std::chrono::system_clock::now();
     double x0;
     double y0;
 
@@ -47,10 +50,14 @@ void Mandelbrot::generate()
             iterMap[ row ][ col ] = getEscapeCount( x0, y0 );
         }
     }
+
+    std::chrono::duration< double > generationTime = std::chrono::system_clock::now() - beforeGenerate;
+    std::cout << "Generation time : " << generationTime.count() << "s\n";
 }
 
 void Mandelbrot::saveTo( const std::string& outputFile )
 {
+    auto beforeSave = std::chrono::system_clock::now();
     std::ofstream fout( outputFile );
     std::stringstream fileData;
 
@@ -61,7 +68,7 @@ void Mandelbrot::saveTo( const std::string& outputFile )
 
     unsigned int red, green, blue;
 
-    const int COL_WIDTH = 4;
+    auto COL_WIDTH = static_cast<unsigned int>(std::to_string( maxColorValue ).length() + 1);
 
     for ( unsigned int row = 0; row < config.getHeight(); ++row )
     {
@@ -78,6 +85,10 @@ void Mandelbrot::saveTo( const std::string& outputFile )
 
     fout << fileData.str();
     fout.close();
+
+    std::chrono::duration< double > saveTime = std::chrono::system_clock::now() - beforeSave;
+    std::cout << "Saving time     : " << saveTime.count() << "s\n";
+    std::cout << "Generated Mandelbrot!\nFile saved to " << outputFile << std::endl;
 }
 
 unsigned int Mandelbrot::getEscapeCount( double x0, double y0 )
@@ -108,37 +119,40 @@ void Mandelbrot::outputIterations( const std::string& outputFile )
 {
     std::ofstream fout( outputFile );
 
+    std::stringstream out;
     for ( unsigned int row = 0; row < config.getHeight(); ++row )
     {
         for ( unsigned int col = 0; col < config.getWidth(); ++col )
         {
-            fout << std::setw( 5 ) << iterMap[ row ][ col ] << ", ";
+            out << std::setw( 5 ) << iterMap[ row ][ col ] << ", ";
         }
-        fout << "\n";
+        out << "\n";
     }
+
+    fout << out.str();
+    fout.close();
 }
 
-void Mandelbrot::iterationHistogram(const std::string &outputFile) {
+void Mandelbrot::iterationHistogram( const std::string& outputFile )
+{
     std::ofstream fout( outputFile );
 
-    std::string out;
-    int histogram[config.getMaxIterations()]{0};
-
+    std::stringstream out;
+    int histogram[config.getMaxIterations()]{ 0 };
 
     for ( unsigned int row = 0; row < config.getHeight(); ++row )
     {
         for ( unsigned int col = 0; col < config.getWidth(); ++col )
         {
-            histogram[iterMap[row][col]]++;
+            histogram[ iterMap[ row ][ col ]]++;
         }
     }
 
-    for (int i = 0; i < config.getMaxIterations(); ++i) {
-        out += std::to_string(i);
-        out += ", ";
-        out += std::to_string(histogram[i]);
-        out += "\n";
+    for ( int i = 0; i < config.getMaxIterations(); ++i )
+    {
+        out << std::to_string( i ) << ", " << std::to_string( histogram[ i ] ) << "\n";
     }
 
-    fout << out;
+    fout << out.str();
+    fout.close();
 }

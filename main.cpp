@@ -66,26 +66,13 @@ int main( int numArgs, char* args[] )
         }
     }
 
-    std::chrono::time_point<std::chrono::system_clock> beforeGenerate, afterGenerate, afterSave;
-
-    beforeGenerate = std::chrono::system_clock::now();
     mandelbrot->generate();
-    afterGenerate = std::chrono::system_clock::now();
-
     mandelbrot->save();
-    afterSave = std::chrono::system_clock::now();
-
-    std::chrono::duration<double> generationTime = afterGenerate-beforeGenerate;
-    std::chrono::duration<double> saveTime = afterSave-afterGenerate;
-    std::chrono::duration<double> totalTime = afterSave-beforeGenerate;
-
-    std::cout << "Total time      : " << totalTime.count() << "s\n";
-    std::cout << "Generation time : " << generationTime.count() << "s\n";
-    std::cout << "Saving time     : " << saveTime.count() << "s\n";
 
 //    mandelbrot->outputIterations("debug.csv");
+//    mandelbrot->iterationHistogram("iterationHistogram.csv");
 
-    std::cout << "Generated Mandelbrot!\nFile saved to " << config->getFileName() << std::endl;
+
     return 0;
 }
 
