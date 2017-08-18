@@ -37,6 +37,7 @@ Mandelbrot::~Mandelbrot()
 
 void Mandelbrot::generate()
 {
+    std::cout << "Starting Mandelbrot Generation" << std::endl;
     auto beforeGenerate = std::chrono::system_clock::now();
     double x0;
     double y0;
@@ -97,22 +98,29 @@ unsigned int Mandelbrot::getEscapeCount( double x0, double y0 )
     double y = 0.0;
     unsigned int iteration = 0;
 
+    double xtemp;
+    double ytemp;
+
     while ( x * x + y * y < 4 && iteration < config.getMaxIterations())
     {
-        double temp = x * x - y * y + x0;
-        y = 2 * x * y + y0;
-        x = temp;
+        xtemp = x * x - y * y + x0;
+        ytemp = 2 * x * y + y0;
+
+        // Periodicity checking. If we get into a loop we know we will be in the set.
+        // See https://en.wikipedia.org/wiki/Mandelbrot_set#Periodicity_checking
+        // NOTE: This is slower so far...
+//        if (x == xtemp && y == ytemp)
+//        {
+//            iteration = config.getMaxIterations();
+//            break;
+//        }
+
+        x = xtemp;
+        y = ytemp;
         ++iteration;
     }
 
     return iteration;
-}
-
-std::tuple< unsigned int, unsigned int, unsigned int > Mandelbrot::determineColor( unsigned int iteration )
-{
-    return std::make_tuple( iteration % maxColorValue,
-                            iteration % maxColorValue,
-                            iteration % maxColorValue );
 }
 
 void Mandelbrot::outputIterations( const std::string& outputFile )

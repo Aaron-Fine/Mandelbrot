@@ -6,6 +6,7 @@
 #include "Mandelbrot.h"
 #include "LinearColoring.h"
 #include "BernsteinContinuous.h"
+#include "Greyscale.h"
 
 int main( int numArgs, char* args[] )
 {
@@ -27,6 +28,7 @@ int main( int numArgs, char* args[] )
     std::cout << "1) Linear (default coloring)\n";
     std::cout << "2) Linear (custom coloring)\n";
     std::cout << "3) Bernstein Continuous (default coloring)\n";
+    std::cout << "4) Bernstein Continuous (custom coloring)\n";
     std::string choice;
     std::cin >> choice;
 
@@ -60,9 +62,26 @@ int main( int numArgs, char* args[] )
             mandelbrot = new BernsteinContinuous( *config );
             break;
         }
+        case 4:
+        {
+            std::string red, green, blue;
+            std::cout << "Please enter positive floats for the red, green, and blue color curve coefficents:\n";
+            std::cout << "Red  :";
+            std::cin >> red;
+            std::cout << "Green:";
+            std::cin >> green;
+            std::cout << "Blue :";
+            std::cin >> blue;
+
+            mandelbrot = new BernsteinContinuous( *config,
+                                                  convertStringToDouble( red ),
+                                                  convertStringToDouble( green ),
+                                                  convertStringToDouble( blue ));
+            break;
+        }
         default:
         {
-            mandelbrot = new Mandelbrot( *config );
+            mandelbrot = new Greyscale( *config );
         }
     }
 

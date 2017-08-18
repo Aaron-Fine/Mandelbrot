@@ -83,6 +83,9 @@
 		<Unit filename="/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/BernsteinContinuous.h">
 			<Option target="Mandelbrot"/>
 		</Unit>
+		<Unit filename="/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/Greyscale.h">
+			<Option target="Mandelbrot"/>
+		</Unit>
 		<Unit filename="/cygdrive/d/OneDrive/Documents/Programming/C++/Mandelbrot/LinearColoring.h">
 			<Option target="Mandelbrot"/>
 		</Unit>
