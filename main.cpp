@@ -14,7 +14,7 @@ int main( int numArgs, char* args[] )
     MandelConfig* config;
     Mandelbrot* mandelbrot;
 
-    if ( numArgs < 1 )
+    if ( numArgs < 2 )
     {
         config = new MandelConfig();
     } else
