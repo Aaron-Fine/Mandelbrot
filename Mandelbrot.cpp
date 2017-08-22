@@ -156,7 +156,7 @@ void Mandelbrot::iterationHistogram( const std::string& outputFile )
         }
     }
 
-    for ( int i = 0; i < config.getMaxIterations(); ++i )
+    for ( unsigned int i = 0; i < config.getMaxIterations(); ++i )
     {
         out << std::to_string( i ) << ", " << std::to_string( histogram[ i ] ) << "\n";
     }
